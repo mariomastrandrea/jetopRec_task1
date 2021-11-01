@@ -59,7 +59,7 @@ public class Program
 		for(var jsonObjectPair : globalJSONobjects.entrySet()) {
 			String outputFileName = jsonObjectPair.getKey() + "_parsed.txt";
 			
-			FileWriter fw = new FileWriter(outputFileName);
+			FileWriter fw = new FileWriter("./outputFiles_task1/" + outputFileName);
 			JSONcomponent jsonObject = jsonObjectPair.getValue();
 			
 			int startingIndentation = 0;		// 0 -> starting indentation
