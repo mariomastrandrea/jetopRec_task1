@@ -10,6 +10,7 @@ public class JSONnumber extends JSONcomponent
 {
 	private Double doubleNumber;
 	private Long longNumber;
+	private String stringRepresentation;
 	
 	
 	public JSONnumber(double number)
@@ -24,6 +25,12 @@ public class JSONnumber extends JSONcomponent
 		this.doubleNumber = null;
 	}
 	
+	public JSONnumber(double number, String possibleNumber)
+	{
+		this(number);
+		this.stringRepresentation = possibleNumber;
+	}
+
 	public double getDouble() { return this.doubleNumber; }
 	public long getLong() { return Math.round(this.longNumber); }
 	public double get() { return this.doubleNumber != null ? this.doubleNumber : (double)this.longNumber; }
@@ -31,13 +38,14 @@ public class JSONnumber extends JSONcomponent
 	@Override
 	public String print(int indentation) 
 	{
-		StringBuilder sb = new StringBuilder();
+		if(this.stringRepresentation != null)
+			return this.stringRepresentation;
 		
 		if(this.doubleNumber != null)
-			return sb.append(String.format("%f", this.doubleNumber)).toString();
+			return String.valueOf(this.doubleNumber);
 		
 		if(this.longNumber != null)
-			return sb.append(String.format("%d", this.longNumber)).toString();
+			return String.valueOf(this.longNumber);
 		
 		return null;
 	}

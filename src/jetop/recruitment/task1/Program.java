@@ -32,7 +32,13 @@ public class Program
 			BufferedReader br = new BufferedReader(new FileReader(inputFile));
 			String firstLine = br.readLine();
 			
-			JSONcomponent inputJSON = jsonParser.parse(firstLine, br);	//launch recursive algorithm (!)
+			if(firstLine == null) {
+				br.close();
+				continue;
+			}
+			
+			//launch recursive algorithm (!)
+			JSONcomponent inputJSON = jsonParser.parse(new StringBuilder(firstLine), br);	
 			globalJSONobjects.put(fileName, inputJSON);
 			
 			br.close();
