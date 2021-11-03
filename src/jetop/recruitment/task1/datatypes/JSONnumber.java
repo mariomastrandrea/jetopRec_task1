@@ -32,7 +32,7 @@ public class JSONnumber extends JSONcomponent
 	}
 
 	public double getDouble() { return this.doubleNumber; }
-	public long getLong() { return Math.round(this.longNumber); }
+	public long getLong() { return this.longNumber; }
 	public double get() { return this.doubleNumber != null ? this.doubleNumber : (double)this.longNumber; }
 	
 	@Override

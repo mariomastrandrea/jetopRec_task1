@@ -49,7 +49,7 @@ public class JSONparser
 			return this.parseArray(currentLine, br);
 		
 		if(firstChar == '"') 	// there is a string
-			return this.parseString(currentLine, br);
+			return this.parseString(currentLine);
 		
 		JSONcomponent result;
 		
@@ -181,7 +181,7 @@ public class JSONparser
 	 * @return A JSONstring object associated to the parsed string value
 	 * @throws IOException
 	 */
-	private JSONstring parseString(StringBuilder currentLine, BufferedReader br) throws IOException
+	private JSONstring parseString(StringBuilder currentLine) throws IOException
 	{
 		// remove starting '"'
 		String currentLineString = currentLine.deleteCharAt(0).toString();
